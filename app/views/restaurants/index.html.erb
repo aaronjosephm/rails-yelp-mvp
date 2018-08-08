@@ -8,15 +8,13 @@
   <div class="navbar-wagon-right hidden-xs hidden-sm">
 
     <!-- Links -->
-    <%= link_to "Host", "#", class: "navbar-wagon-item navbar-wagon-link" %>
-    <%= link_to "Trips", "#", class: "navbar-wagon-item navbar-wagon-link" %>
-    <%= link_to "Messages", "#", class: "navbar-wagon-item navbar-wagon-link" %>
+
     <%= link_to "+ new restaurant", new_restaurant_url, method: :get%>
 
     <!-- Avatar with dropdown menu -->
     <div class="navbar-wagon-item">
       <div class="dropdown">
-        <%= image_tag "http://placehold.it/30x30", class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
+
         <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
           <li>
             <%= link_to "#" do %>
@@ -47,13 +45,19 @@
 </div>
 <h1>Here are all the restaurants</h1>
 <% @restaurants.each do |restaurant| %>
-  <h2><%= restaurant.name %></h2>
-  <h3>Address: <%= restaurant.address %></h3>
-  <p>Phone number: <%= restaurant.phone_number %></p>
-  <p>category: <%= restaurant.category %></p>
-  <p>stars: <%= restaurant.stars %></p>
+<div class="col-md-6 offset-md-6">
+  <div class="card" style="background-color: white;">
+  <div class="card-body">
+  <h2 class="card-title"><%= restaurant.name %></h2>
+  <h3 class="card-text">Address: <%= restaurant.address %></h3>
+  <p class="card-text">Phone number: <%= restaurant.phone_number %></p>
+  <p class="card-text">category: <%= restaurant.category %></p>
+  <p class="card-text">stars: <%= restaurant.stars %></p>
   <p><%= link_to restaurant.name, restaurant_path(restaurant), method: :get%></p>
   <%= link_to restaurant_path(restaurant), method: :delete do %>
     <i class="fas fa-trash-alt"></i>
   <% end %>
+</div>
+</div>
+</div>
 <% end %>

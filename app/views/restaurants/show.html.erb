@@ -8,15 +8,14 @@
   <div class="navbar-wagon-right hidden-xs hidden-sm">
 
     <!-- Links -->
-    <%= link_to "Host", "#", class: "navbar-wagon-item navbar-wagon-link" %>
-    <%= link_to "Trips", "#", class: "navbar-wagon-item navbar-wagon-link" %>
+
     <%= link_to "All restaurants", restaurants_index_path, method: :get %>
 
 
     <!-- Avatar with dropdown menu -->
     <div class="navbar-wagon-item">
       <div class="dropdown">
-        <%= image_tag "http://placehold.it/30x30", class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
+
         <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
           <li>
             <%= link_to "#" do %>
@@ -53,7 +52,7 @@
   <%= f.input :address, label: 'Restaurant address:' %>
   <%= f.input :category, label: 'Restaurant category:' %>
   <%= f.input :stars, label: 'Restaurant star rating:' %>
-  <%= f.submit %>
+  <%= f.submit "update", class: "btn btn-primary" %>
 <% end %>
 </div>
 
