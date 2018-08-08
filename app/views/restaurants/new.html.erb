@@ -1,0 +1,12 @@
+<h1>Post a new restaurant</h1>
+<%= simple_form_for([@restaurant]) do |f| %>
+  <%= f.input :name, label: 'Restaurant name:' %>
+  <%= f.input :phone_number, label: 'Restaurant phone number:' %>
+  <%= f.input :address, label: 'Restaurant address:' %>
+  <%= f.input :category, label: 'Restaurant category:' %>
+  <%= f.input :stars, label: 'Restaurant star rating:' %>
+  <%= f.submit %>
+<% end %>
+
+
+<%= link_to 'Back', :back %>
