@@ -1,7 +1,7 @@
 <div class="navbar-wagon">
   <!-- Logo -->
   <%= link_to root_path, class: "navbar-wagon-brand" do %>
-    <i class="fas fa-trash-alt"></i>
+    <i class="fas fa-grin-alt"></i>
   <% end %>
 
   <!-- Right Navigation -->
@@ -53,4 +53,7 @@
   <p>category: <%= restaurant.category %></p>
   <p>stars: <%= restaurant.stars %></p>
   <p><%= link_to restaurant.name, restaurant_path(restaurant), method: :get%></p>
+  <%= link_to restaurant_path(restaurant), method: :delete do %>
+    <i class="fas fa-trash-alt"></i>
+  <% end %>
 <% end %>

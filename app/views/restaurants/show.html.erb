@@ -1,7 +1,7 @@
 <div class="navbar-wagon">
   <!-- Logo -->
   <%= link_to root_path, class: "navbar-wagon-brand" do %>
-    <i class="fas fa-trash-alt"></i>
+    <i class="fas fa-grin-alt"></i>
   <% end %>
 
   <!-- Right Navigation -->
@@ -10,8 +10,8 @@
     <!-- Links -->
     <%= link_to "Host", "#", class: "navbar-wagon-item navbar-wagon-link" %>
     <%= link_to "Trips", "#", class: "navbar-wagon-item navbar-wagon-link" %>
-    <%= link_to "Messages", "#", class: "navbar-wagon-item navbar-wagon-link" %>
-    <%= link_to "+ new review", new_restaurant_review_path(@restaurant), method: :get%>
+    <%= link_to "All restaurants", restaurants_index_path, method: :get %>
+
 
     <!-- Avatar with dropdown menu -->
     <div class="navbar-wagon-item">
@@ -46,15 +46,22 @@
   </div>
 </div>
 <h1>Here is the restaurant</h1>
-<%= form_for(@restaurant) do |f| %>
-  <%= f.label :name %>
-  <%= f.text_field :name %>
-
-  <%= f.label :stars %>
-  <%= f.text_field :stars%>
-
+<div class="col-md-3 offset-md-3">
+<%= simple_form_for([@restaurant]) do |f| %>
+  <%= f.input :name, label: 'Restaurant name:' %>
+  <%= f.input :phone_number, label: 'Restaurant phone number:' %>
+  <%= f.input :address, label: 'Restaurant address:' %>
+  <%= f.input :category, label: 'Restaurant category:' %>
+  <%= f.input :stars, label: 'Restaurant star rating:' %>
   <%= f.submit %>
 <% end %>
+</div>
 
+<h2>Reviews:</h2>
+<% @restaurant.reviews.each do |review| %>
+  <p><%= review.content %></p>
+  <p><%= review.rating %></p>
+<% end %>
+<p><%= link_to "+ new review", new_restaurant_review_path(@restaurant), method: :get%></p>
 
-<%= link_to 'Back', :back %>
+<p><%= link_to 'Back', :back %></p>
